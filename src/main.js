@@ -9,6 +9,10 @@ import './styles/style.scss'
 import './styles/project.scss'
 import wx from 'weixin-js-sdk'
 import VConsole from 'vconsole'
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+
+Vue.use(ElementUI);
 
 if(process.env.NODE_ENV !== 'production' || process.env.VUE_APP_FLAG !== 'pro') {
   // new VConsole()
@@ -36,10 +40,6 @@ if (process.env.NODE_ENV === 'development') {
     Vue.prototype.$couponUrl = 'http://facedprd.luxcon.cn'
   }
 }
-
-import { Toast, Popup } from 'vant'
-Vue.use(Toast)
-  .use(Popup)
 
 Vue.config.productionTip = false
 

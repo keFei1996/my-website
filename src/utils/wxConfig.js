@@ -1,6 +1,5 @@
 import MyApi from '../api/my'
 import wx from 'weixin-js-sdk'
-import Toast from "vant";
 
 export default {
   wxInit: function (cb) {

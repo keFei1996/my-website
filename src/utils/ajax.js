@@ -1,6 +1,5 @@
 import axios from 'axios'
 import QS from 'qs'
-import {Toast} from 'vant'
 import Vue from 'vue'
 
 // 请求基础url

@@ -1,5 +1,3 @@
-import { Toast }  from "vant";
-
 //压缩图片
 export const compressImage = (ev, success, error) => {
   if(!/.(gif|jpg|jpeg|png|gif|jpg|png)$/.test(ev.target.value)){
