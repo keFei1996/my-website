@@ -23,6 +23,11 @@ const constantRoutes = [
     component: () => import('@/views/test/test.vue'),
     meta: { title: '测试'}
   },
+  {
+    path: '/life-photo',
+    component: () => import('@/views/life-photo/life-photo.vue'),
+    meta: { title: 'life-photo'}
+  },
 ]
 
 const createRouter = () => new Router({
