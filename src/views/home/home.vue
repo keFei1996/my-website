@@ -21,14 +21,14 @@
       <div v-else class="getCode">重新获取({{ time }}s)</div>
     </div>
     <div class="button-base button-blue home-button" @click="loginClick">登录</div>
-    <van-popup v-model="show">
-      <div class="model-member">
-        <img class="img-vip" src="@/assets/images/img_vip.png" alt="">
-        <div class="not-member">抱歉，jenkin测试</div>
-        <div class="model-tip">您可通过刷脸支付成为会员</div>
-        <div class="cancel" @click="modelCancel">取消</div>
-      </div>
-    </van-popup>
+<!--    <van-popup v-model="show">-->
+<!--      <div class="model-member">-->
+<!--        <img class="img-vip" src="@/assets/images/img_vip.png" alt="">-->
+<!--        <div class="not-member">抱歉，jenkin测试</div>-->
+<!--        <div class="model-tip">您可通过刷脸支付成为会员</div>-->
+<!--        <div class="cancel" @click="modelCancel">取消</div>-->
+<!--      </div>-->
+<!--    </van-popup>-->
   </div>
 </template>
 

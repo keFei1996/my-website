@@ -1,0 +1,25 @@
+.waterfall-flow-ul{
+  position: relative;
+}
+.waterfall-flow-li{
+  position: absolute;
+  padding: 5px;
+  left: 0;
+  top: 0;
+  transition: all 1s;
+  img{
+    position: relative;
+    width: 100%;
+  }
+  .tip{
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 6;
+    line-height: 18px;
+    text-align: justify;
+  }
+}
