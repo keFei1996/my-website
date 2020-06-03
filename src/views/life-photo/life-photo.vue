@@ -37,10 +37,34 @@
         ],
         newImgList: [],
         loading: true,
-        mouseIndex: -1
+        mouseIndex: -1,
+        resizeTimer: null
       }
     },
     methods: {
+      // 计算宽度
+      countColWidth() {
+        let bodyW = document.body.clientWidth;
+        if(bodyW > 1440) {
+          this.colWidth = 460
+        }else if(bodyW > 1200) {
+          this.colWidth = 400
+        }else if(bodyW > 992) {
+          this.colWidth = 340
+        }else {
+          this.colWidth = 340
+        }
+        this.loadImage();
+      },
+      // 监听函数
+      resizeEvent() {
+        // 变化后需要做的事
+        let that = this;
+        clearTimeout(this.resizeTimer);
+        this.resizeTimer = setTimeout(() => {
+          that.countColWidth();
+        }, 400)
+      },
       // li鼠标进入
       onMouseenter(index) {
         this.mouseIndex = index;
@@ -51,12 +75,12 @@
       // 计算列数
       getColNumbers() {
         let clientWidth = this.$refs.waterfall.clientWidth;
-        this.colNumbers = Math.floor(clientWidth / this.colWidth)
+        this.colNumbers = Math.floor(clientWidth / this.colWidth);
       },
       //读取图片
       loadImage() {
+        this.loading = true;
         this.getColNumbers();
-
         let promise = Promise.resolve()
         this.imgList.forEach((ev, index) => {
           promise = promise.then(() => {
@@ -93,7 +117,8 @@
               //把高度加上去
               this.colHeight[minIndex] += this.colWidth / imgInfo.ratio
             }
-            Object.assign(imgInfo, this.imgList[index]);
+            // 赋值描述
+            imgInfo.describe = this.imgList[index].describe;
             this.$set(this.imgList, index, imgInfo);
             resolve()
           }
@@ -105,9 +130,14 @@
       }
     },
     created() {
+
+    },
+    destroyed() {
+      window.removeEventListener('resize', this.resizeEvent);
     },
     mounted() {
-      this.loadImage();
+      this.countColWidth();
+      window.addEventListener('resize', this.resizeEvent)
     }
   }
 </script>
